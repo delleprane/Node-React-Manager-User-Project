@@ -2,6 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
+import CssBaseline from '@material-ui/core/CssBaseline';
 
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
@@ -96,7 +97,7 @@ const useStyles = makeStyles((theme) => ({
    },
  }));
 
-export default function MenuAdmin() {
+export default function MenuAdmin({title}) {
    const classes = useStyles();
 
    const [open, setOpen] = React.useState(true);
@@ -109,6 +110,7 @@ export default function MenuAdmin() {
 
    return (
       <>
+      <CssBaseline />
       <AppBar position="absolute" className={clsx(classes.appBar, open && classes.appBarShift)}>
       <Toolbar className={classes.toolbar}>
         <IconButton
@@ -121,7 +123,7 @@ export default function MenuAdmin() {
           <MenuIcon />
         </IconButton>
         <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-          Dashboard
+          {title}
         </Typography>
       </Toolbar>
     </AppBar>

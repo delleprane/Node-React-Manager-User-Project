@@ -8,6 +8,7 @@ import Dashboard from './pages/admin/dashboard';
 import Usuarios from './pages/admin/usuarios';
 import UsuariosEditar from './pages/admin/usuarios/usuarios.editar';
 import UsuariosCadastrar from './pages/admin/usuarios/usuarios.cadastrar';
+import Login from "./pages/admin/login";
 
 //Import Client
 import Home from './pages/client/home'
@@ -21,6 +22,7 @@ export default function Routes () {
 
              {/* Rota Admin */}
              <Route path="/admin" exact component={Dashboard} />
+             <Route path="/admin/login" exact component={Login} />
 
              <Route path="/admin/usuarios" exact component={Usuarios} />
              <Route path="/admin/usuarios/cadastrar" exact component={UsuariosCadastrar} />
