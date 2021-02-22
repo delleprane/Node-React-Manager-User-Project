@@ -5,6 +5,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import PeopleIcon from '@material-ui/icons/People';
+import AddIcon from '@material-ui/icons/Add';
 
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
@@ -18,6 +19,12 @@ export const mainListItems = (
             <PeopleIcon />
          </ListItemIcon>
          <ListItemText primary="Usuários" />
+      </ListItem>
+      <ListItem button component="a" href="/admin/usuarios/cadastrar">
+         <ListItemIcon>
+            <AddIcon />
+         </ListItemIcon>
+         <ListItemText primary="Novo Usuário" />
       </ListItem>
    </div>
 );

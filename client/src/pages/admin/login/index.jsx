@@ -9,6 +9,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
 
 import { setNomeUsuario, login, setIdUsuario } from '../../../services/auth';
 import api from '../../../services/api';
@@ -64,7 +65,7 @@ export default function SignIn() {
 
                   window.location.href = '/admin'
                } else if (res.data.status === 2) {
-                  alert('Atenção: '+res.data.error);
+                  alert('Atenção: ' + res.data.error);
                }
             } else {
                alert('Erro servidor');
@@ -117,6 +118,13 @@ export default function SignIn() {
             >
                Entrar
           </Button>
+            <Grid container>
+               <Grid item>
+                  <Link href="/admin/usuarios/cadastrar" variant="body2">
+                     {"Não tem conta? Inscrever-se"}
+                  </Link>
+               </Grid>
+            </Grid>
          </div>
          <Box mt={8}>
             <Copyright />

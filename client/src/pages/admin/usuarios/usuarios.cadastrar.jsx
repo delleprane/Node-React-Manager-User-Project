@@ -102,12 +102,12 @@ export default function UsuarioCadastrar() {
    const [email, setEmail] = useState('');
    const [senha, setSenha] = useState('');
 
-   async function handleSubmit(){
-      const data = {nome_usuario: nome, sobrenome_usuario: sobrenome, cpf_usuario: cpf,  telefone_usuario: telefone, email_usuario: email,  senha_usuario: senha}
+   async function handleSubmit() {
+      const data = { nome_usuario: nome, sobrenome_usuario: sobrenome, cpf_usuario: cpf, telefone_usuario: telefone, email_usuario: email, senha_usuario: senha }
 
-      if (nome !== '' && sobrenome !== '' && cpf !== '' && telefone !== '' && email !== '' && senha !== ''){
+      if (nome !== '' && sobrenome !== '' && cpf !== '' && telefone !== '' && email !== '' && senha !== '') {
          const response = await api.post('/api/usuarios', data)
-         if (response.status === 200){
+         if (response.status === 200) {
             window.location.href = '/admin/usuarios'
          } else {
             alert('Erro ao cadastrar o usuário!')
@@ -122,7 +122,6 @@ export default function UsuarioCadastrar() {
 
    return (
       <div className={classes.root}>
-         <MenuAdmin title={'USUÁRIOS'} />
          <main className={classes.content}>
             <div className={classes.appBarSpacer} />
             <Container maxWidth="lg" className={classes.container}>
