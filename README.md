@@ -18,7 +18,7 @@ Para rodar o projeto utilize os seguintes comandos:
 ##### Na raiz e na pasta /client.
 
 ```sh
-npm I
+npm i
 ```
 
 ##### Logo em seguida executar o comando na raiz.
