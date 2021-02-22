@@ -8,14 +8,11 @@ import PeopleIcon from '@material-ui/icons/People';
 
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
+import { getToken, logout } from '../services/auth';
+import api from '../services/api';
+
 export const mainListItems = (
    <div>
-      <ListItem button component="a" href="/admin">
-         <ListItemIcon>
-            <DashboardIcon />
-         </ListItemIcon>
-         <ListItemText primary="Dashboard"/>
-      </ListItem>
       <ListItem button component="a" href="/admin/usuarios">
          <ListItemIcon>
             <PeopleIcon />
@@ -27,8 +24,7 @@ export const mainListItems = (
 
 export const secondaryListItems = (
    <div>
-      <ListSubheader inset>Opções</ListSubheader>
-      <ListItem button>
+      <ListItem button onClick={confirmSair}>
          <ListItemIcon>
             <ExitToAppIcon />
          </ListItemIcon>
@@ -36,3 +32,15 @@ export const secondaryListItems = (
       </ListItem>
    </div>
 );
+
+async function confirmSair() {
+   if (window.confirm('Deseja realmente sair?')) {
+      const response = await api.get('/api/usuarios/destroyToken', { headers: { token: getToken() } })
+      if (response.status === 200) {
+         logout();
+         window.location.href = '/admin/login'
+      } else {
+         alert('Não foi possivel fazer o logout!');
+      }
+   }
+}
